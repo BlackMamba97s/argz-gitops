@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argz
+  namespace: argocd
+  labels:
+    app: argz
+    app.kubernetes.io/component: backstage
+    backstage.io/kubernetes-id: argocd
+spec:
+  - host: argocd.liquid-reply.net
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: argz
+              port:
+                number: 80

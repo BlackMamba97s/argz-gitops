@@ -1,0 +1,18 @@
+
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: argz-gitops
+  description: Contains the ArgoCD manifests for argz
+  annotations:
+    argocd/app-name: argz-gitops
+    backstage.io/kubernetes-id: argz-gitops
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: BlackMamba97s/argz-gitops
+spec:
+  type: gitops
+  system: argocd
+  lifecycle: production
+  owner: CPA
+  dependsOn:
+    - component:default/backstagedocs
